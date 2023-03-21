@@ -108,7 +108,7 @@ const SiginIn = () => {
               <AppErrorText text={error?.response?.data?.message} />
 
               <AppInput
-                type="email"
+                type="text"
                 name="User_email"
                 isRequired={true}
                 className="login-input-field font-family-regular"
