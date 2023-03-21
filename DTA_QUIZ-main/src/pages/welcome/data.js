@@ -3,6 +3,7 @@ import {
   DASHBOARD_ROUTE,
   KNOWLEDGEHUB_ROUTE,
   PASSWORD_GENERATOR_ROUTE,
+  REPORTS_ROUTE
 } from "src/utils/constant";
 
 export const welcomeData = [

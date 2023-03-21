@@ -8,6 +8,7 @@ import PasswordGenerator from "src/pages/PasswordGenerator/PasswordGenerator";
 import Home from "../pages/home/Home";
 import SiginIn from "../pages/signin/Signin";
 import Result from "src/pages/result/Result";
+import Report from "src/pages/Reports/reports";
 import PasswordSecurityChecker from "src/pages/PasswordSecurityChecker/PasswordSecurityChecker";
 import {
   CONCRETE_CASES_DETAIL_ROUTE,
@@ -21,6 +22,7 @@ import {
   RESULT_ROUTE,
   SIGNIN_ROUTE,
   WELCOME_ROUTE,
+  REPORTS_ROUTE
 } from "src/utils/constant";
 import Welcome from "src/pages/welcome/Welcome";
 
@@ -68,6 +70,10 @@ const router = createBrowserRouter([
   {
     path: PASSWORD_SECURITY_CHECKER_ROUTE,
     element: <PasswordSecurityChecker />,
+  },
+  {
+    path: REPORTS_ROUTE,
+    element: <Report/>,
   },
 ]);
 

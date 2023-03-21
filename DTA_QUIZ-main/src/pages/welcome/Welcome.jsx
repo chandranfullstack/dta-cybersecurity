@@ -29,7 +29,7 @@ const Welcome = () => {
           }}
         />
 
-        <div className="row">
+        <div className="row flex-nowrap">
           {welcomeData?.map((data, index) => {
             return (
               <div className="col" key={index}>

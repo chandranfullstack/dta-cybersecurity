@@ -8,6 +8,7 @@ import {
   PASSWORD_GENERATOR_ROUTE,
   PASSWORD_SECURITY_CHECKER_ROUTE,
   SIGNIN_ROUTE,
+  REPORTS_ROUTE
 } from "src/utils/constant";
 import {
   getTokenFromStorage,
@@ -134,19 +135,6 @@ const AppHeader = ({ isMenu }) => {
                     customstyles={{ marginBottom: "0rem" }}
                   />
                 </AppLink>
-                <li className="nav-item assessmentLink">
-                <AppLink
-                  to={DASHBOARD_ROUTE}
-                  otherClassNames={"nav-link active"}
-                >
-                  <AppText
-                    text={t("nav_report")}
-                    isBold
-                    otherClassNames="font-18"
-                    customstyles={{ marginBottom: "0rem" }}
-                  />
-                </AppLink>
-              </li>
                 <ul
                   className="dropdown-menu translate-div"
                   aria-labelledby="navbarDropdownMenuLink"
@@ -168,7 +156,21 @@ const AppHeader = ({ isMenu }) => {
                     </AppLink>
                   </li>
                 </ul>
+                </li>
+                <li className="nav-item assessmentLink">
+                <AppLink
+                  to={REPORTS_ROUTE}
+                  otherClassNames={"nav-link active"}
+                >
+                  <AppText
+                    text={t("nav_report")}
+                    isBold
+                    otherClassNames="font-18"
+                    customstyles={{ marginBottom: "0rem" }}
+                  />
+                </AppLink>
               </li>
+              
 
               <li className="nav-item">
                 {getTokenFromStorage() ? (
