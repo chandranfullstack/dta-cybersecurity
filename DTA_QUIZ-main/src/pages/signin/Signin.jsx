@@ -36,12 +36,13 @@ const SiginIn = () => {
       onSuccess: (res) => {
         console.log("entered")
         console.log(signInData?.data?.Accesstoken)
+        console.log(signInData?.data?.token)
         console.log(signInData)
          setUserNameAndToken({
-           user_token: signInData?.data?.Accesstoken,
+           user_token: signInData?.data?.token,
            is_authenticated: true,
          });
-        setTokenInStorage(res?.data?.Accesstoken);
+        setTokenInStorage(res?.data?.token);
         navigate(WELCOME_ROUTE);
       },
     }
