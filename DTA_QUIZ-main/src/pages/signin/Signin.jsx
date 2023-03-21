@@ -17,8 +17,8 @@ import { FaUserAlt } from "react-icons/fa";
 
 const SiginIn = () => {
   const [formValues, setFormValues] = React.useState({
-    User_email: "",
-    User_password: "",
+    username: "",
+    password: "",
   });
   const { setUserNameAndToken } = useAppStore((state) => state);
 
@@ -109,7 +109,7 @@ const SiginIn = () => {
 
               <AppInput
                 type="text"
-                name="User_email"
+                name="username"
                 isRequired={true}
                 className="login-input-field font-family-regular"
                 IconSrc={FaUserAlt}
@@ -124,7 +124,7 @@ const SiginIn = () => {
               />
               <AppInput
                 type={showPassword ? "text" : "password"}
-                name="User_password"
+                name="password"
                 isRequired={true}
                 className="login-input-field font-family-regular"
                 IconSrc={showPassword ? BsFillEyeSlashFill : BsFillEyeFill}
