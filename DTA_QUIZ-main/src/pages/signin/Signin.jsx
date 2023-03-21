@@ -46,15 +46,15 @@ const SiginIn = () => {
   );
 
   // // Check if user is already authenticated
-   React.useEffect(() => {
-     isUserAuthenticated().then((resData) => {
-       const token = getUserToken();
-       setUserNameAndToken({
-         token,
-       });
-       navigate("/dashboard");
-     });
-   }, []);
+  // React.useEffect(() => {
+  //   isUserAuthenticated().then((resData) => {
+  //     const token = getUserToken();
+  //     setUserNameAndToken({
+  //       token,
+  //     });
+  //     navigate("/dashboard");
+  //   });
+  // }, []);
 
   useEffect(() => {
     if (getTokenFromStorage()) return navigate(HOME_ROUTE);
