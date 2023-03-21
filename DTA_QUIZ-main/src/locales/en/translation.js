@@ -6,6 +6,7 @@ export const translationEn = {
   nav_Information_Security: "Information Security",
   nav_Concrete_Cases: "Concrete Cases",
   nav_Tools: "Tools",
+  nav_report:"Reports",
   nav_Strong_Password_Generator: "Strong Password Generator",
   nav_Check_Your_Password_Strength: "Check Your Password Strength",
   nav_Logout: "Logout",

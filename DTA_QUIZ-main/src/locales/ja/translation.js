@@ -6,6 +6,7 @@ export const translationJa = {
   nav_Information_Security: "情報セキュリティー",
   nav_Concrete_Cases: "コンクリートケース",
   nav_Tools: "ツール",
+  nav_report:"レポート",
   nav_Strong_Password_Generator: "強力なパスワード ジェネレーター",
   nav_Check_Your_Password_Strength: "パスワードの長さを確認する",
   nav_Logout: "ログアウト",

@@ -134,6 +134,19 @@ const AppHeader = ({ isMenu }) => {
                     customstyles={{ marginBottom: "0rem" }}
                   />
                 </AppLink>
+                <li className="nav-item assessmentLink">
+                <AppLink
+                  to={DASHBOARD_ROUTE}
+                  otherClassNames={"nav-link active"}
+                >
+                  <AppText
+                    text={t("nav_report")}
+                    isBold
+                    otherClassNames="font-18"
+                    customstyles={{ marginBottom: "0rem" }}
+                  />
+                </AppLink>
+              </li>
                 <ul
                   className="dropdown-menu translate-div"
                   aria-labelledby="navbarDropdownMenuLink"

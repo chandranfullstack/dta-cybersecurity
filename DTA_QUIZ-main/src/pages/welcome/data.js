@@ -26,4 +26,9 @@ export const welcomeData = [
     title: "Tools",
     path: PASSWORD_GENERATOR_ROUTE,
   },
+  {
+    id: 5,
+    title: "Reports",
+    path: REPORTS_ROUTE,
+  },
 ];
