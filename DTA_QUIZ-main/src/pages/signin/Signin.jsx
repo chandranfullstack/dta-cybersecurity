@@ -34,10 +34,11 @@ const SiginIn = () => {
     (formBody) => makePostRequest(APP_LOGIN, formBody),
     {
       onSuccess: (res) => {
-        setUserNameAndToken({
-          user_token: signInData?.data?.Accesstoken,
-          is_authenticated: true,
-        });
+        console.log("entered")
+        // setUserNameAndToken({
+        //   user_token: signInData?.data?.Accesstoken,
+        //   is_authenticated: true,
+        // });
         setTokenInStorage(res?.data?.Accesstoken);
         navigate(WELCOME_ROUTE);
       },
@@ -45,15 +46,15 @@ const SiginIn = () => {
   );
 
   // // Check if user is already authenticated
-  // React.useEffect(() => {
-  //   isUserAuthenticated().then((resData) => {
-  //     const token = getUserToken();
-  //     setUserNameAndToken({
-  //       token,
-  //     });
-  //     navigate("/dashboard");
-  //   });
-  // }, []);
+   React.useEffect(() => {
+     isUserAuthenticated().then((resData) => {
+       const token = getUserToken();
+       setUserNameAndToken({
+         token,
+       });
+       navigate("/dashboard");
+     });
+   }, []);
 
   useEffect(() => {
     if (getTokenFromStorage()) return navigate(HOME_ROUTE);
