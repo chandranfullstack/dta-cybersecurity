@@ -1,5 +1,6 @@
 const setTokenInStorage = (data) => {
   if (data) {
+    console.log("set token in storage",data)
     localStorage.setItem("DTA_TOKEN", JSON.stringify(data));
   }
 };
