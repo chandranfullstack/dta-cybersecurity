@@ -1,0 +1,45 @@
+@mixin base_row_padded_columns {
+    padding-top: map-get($spacers, 3);
+    padding-bottom: map-get($spacers, 0) !important;
+}
+
+@mixin app_row_padded_columns($breakpoint) {
+    & > div[class^='col-'] {
+        @include media-breakpoint-down(#{$breakpoint}) {
+            @include base_row_padded_columns;
+
+            &:first-child {
+                padding-top: 0 !important;
+            }
+        }
+    }
+}
+
+@mixin common_image_attributes {
+    height: auto;
+    object-fit: contain;
+}
+
+@mixin common_card_attributes {
+    border-radius: $app_border_radius_1;
+    padding: map-get($spacers, 2);
+}
+
+@mixin background_cover_image_div {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin fix_bootstrap_button_outline {
+    &:focus,
+    &:active,
+    &:hover {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+@mixin app_slow_transition_1 {
+    transition: all 0.2s;
+}
