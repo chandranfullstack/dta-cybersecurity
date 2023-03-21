@@ -1,4 +1,4 @@
-export const APP_LOGIN = "api/auth/login";
+export const APP_LOGIN = "/auth/login";
 
 export const GET_QUIZ_LIST = "/quiz/allquiz";
 
