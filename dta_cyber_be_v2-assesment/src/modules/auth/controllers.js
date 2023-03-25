@@ -26,13 +26,9 @@ const loginResponse1 = (user) => ({
              })
              console.log(isNull(user),user)
              // skip ldap check for users
-             if (value === 'admin' && isNull(user)) {
+             if (value === 'admin' && !isNull(user)) {
                  console.log(user,"val")
-                 res.json(200, {
-                     data,
-                     is_success: true,
-                     action: "DO_NOTHING"
-                 })
+                return user
              }
 
               // LDAP Try
