@@ -2,6 +2,7 @@
  * Central function to send out the ok/success response.
  */
 const apiOkResponse = (res, data = {}) => {
+    console.log("api response called")
     res.json(200, {
         data,
         is_success: true,

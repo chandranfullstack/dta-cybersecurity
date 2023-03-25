@@ -1,4 +1,4 @@
-const {BaseModel, defaultOptions, defaultAttributes} = require("../common/models");
+const {BaseModel,AdminModel, defaultOptions, defaultAttributes,} = require("../common/models");
 const {DataTypes} = require("sequelize");
 
 
@@ -21,7 +21,6 @@ User.init(
     defaultOptions
 );
 
-
 module.exports = {
-    User
+    User,
 }

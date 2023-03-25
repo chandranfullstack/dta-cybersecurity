@@ -30,6 +30,8 @@ export const PASSWORD_SECURITY_CHECKER_ROUTE = "/password-security-checker";
 
 export const REPORTS_ROUTE="/reports"
 
+export const ADMIN_ROUTE="/admin"
+
 // FUNCTIONALITY
 
 // PASSWORD GENERATOR

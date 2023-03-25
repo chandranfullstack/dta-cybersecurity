@@ -2,10 +2,18 @@ const AdminBro = require('admin-bro')
 const AdminBroExpress = require('@admin-bro/express')
 const AdminBroSequelize = require('admin-bro-sequelizejs');
 const {User} = require("../auth/models");
-const {Quiz, QuizGroup, QuizQuestion, QuizOption, QuestionM2MOption} = require("../assessment/models");
+const xlsx =require('node-xlsx')
+const { exportToExcel } = require('./customfun')
+const {Quiz, QuizGroup, QuizQuestion, QuizOption, QuestionM2MOption,Report} = require("../assessment/models");
+const { Component } = require('react');
+
+
 
 
 AdminBro.registerAdapter(AdminBroSequelize);
+
+  // Add the button to the resource's actions list
+  
 const adminBro = new AdminBro({
     databases: [],
     resources: [
@@ -57,6 +65,54 @@ const adminBro = new AdminBro({
                 },
             },
         },
+        {
+            resource:Report,
+             options: {
+                 parent: {
+                     icon: 'TextLink',
+                 },
+                 actions: {
+                    ReportGenerate: {
+                        newAction: {
+                          actionType: 'Report',
+                          icon: 'New',
+                          isVisible: true,
+                          handler: async (request, response, context) => {
+                            console.log("called")
+                            console.log(context.resource.id())
+                          },
+                        },
+                      },
+                    show: {
+                        icon: 'View',
+                        isVisible: (context) => context.record.param('Username') === 'Username',
+                    },
+                    edit: {
+                        icon: 'edit',
+                        isVisible: (context) => context.record.param('Username') === 'Username',
+                    },
+                    delete: {
+                        icon: 'delete',
+                        isVisible: (context) => context.record.param('Username') === 'Username',
+                    },
+                    new: {
+                        icon: 'new',
+                        isVisible: (context) => false,
+                    },
+                    list:{
+                        icon:'list',
+                        isVisible:(context)=>true
+                    },
+                    search:{
+                        icon:'search',
+                        isVisible:(context)=>false
+                    },
+                   
+
+                },
+                },
+        },
+        
     ],
     branding: {
         companyName: 'DTA Cyber',
@@ -67,7 +123,7 @@ const adminBro = new AdminBro({
     },
     rootPath: '/admin',
 })
-
+  
 
 const adminBroRouter = AdminBroExpress.buildRouter(adminBro)
 

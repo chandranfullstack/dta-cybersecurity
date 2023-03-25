@@ -1,6 +1,6 @@
 const {Quiz, QuizQuestion, QuestionM2MOption, QuizOption, QuizGroup} = require("./modules/assessment/models");
 const {dbClient} = require("./config");
-const {User} = require("./modules/auth/models");
+const {User,Reports} = require("./modules/auth/models");
 
 
 const COMMON_DATA = {
@@ -657,6 +657,12 @@ const seed = async (reset = false) => {
     //     username: "admin",
     //     password: "password",
     // })
+    await Reports.create({
+        id:1,
+        Username:"chandran",
+        title:"chan",
+        status:"open"
+    })
 
 }
 

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Cyces-Innovation-Labs/dta_cyber_be_v2#readme",
   "dependencies": {
+    "@admin-bro/design-system": "^1.7.3",
     "@admin-bro/express": "^3.1.0",
     "@admin-bro/sequelize": "^1.2.1",
     "admin-bro": "^4.0.1",
@@ -40,6 +41,7 @@
     "file-type": "^18.2.1",
     "ldapjs": "^2.3.3",
     "mysql2": "^3.0.1",
+    "node-xlsx": "^0.21.0",
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",

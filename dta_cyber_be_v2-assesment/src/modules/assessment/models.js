@@ -8,6 +8,7 @@ const {dbClient} = require("../../config");
  * Main model to hold the quiz details. The user level quiz data
  * are stored on a tracker model along with the score.
  */
+
 class Quiz extends BaseModel {
 }
 
@@ -209,6 +210,23 @@ QuizAnswer.init(
     defaultOptions
 )
 
+class Report extends BaseModel{
+
+}
+Report.init(
+    {
+    ...defaultAttributes,
+    id:{
+        type:DataTypes.INTEGER,
+        primaryKey:true
+    },
+    username:DataTypes.STRING,
+    title:DataTypes.STRING,
+    correctanswer:DataTypes.STRING,
+    wronganswer:DataTypes.STRING,
+},
+defaultOptions)
+
 
 // Relation Definitions
 // ---------------------------------------------------------------------------------------------------------------------
@@ -375,6 +393,7 @@ QuizOption.hasMany(QuizAnswer, {
 })
 
 
+
 module.exports = {
     Quiz,
     QuizGroup,
@@ -383,5 +402,6 @@ module.exports = {
     // trackers
     UserQuizTracker,
     QuizAnswer,
-    QuestionM2MOption
+    QuestionM2MOption,
+    Report
 }

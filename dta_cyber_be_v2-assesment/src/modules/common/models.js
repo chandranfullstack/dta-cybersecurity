@@ -1,7 +1,6 @@
 const {Model} = require("sequelize");
 const {dbClient} = require("../../config");
 
-
 /**
  * Base model class used across the application.
  */
@@ -26,5 +25,6 @@ const defaultAttributes = {}
 module.exports = {
     BaseModel,
     defaultOptions,
-    defaultAttributes
+    defaultAttributes,
+    
 }

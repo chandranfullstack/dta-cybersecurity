@@ -9,6 +9,8 @@ const cors = require("cors");
 const {adminBro, adminBroRouter} = require("./modules/admin/config");
 const path = require("path");
 const fileupload = require("express-fileupload");
+const adminRouter=require("./modules/admin/routes")
+
 // const bodyParser = require('body-parser');
 
 
@@ -34,7 +36,10 @@ app.use(express.urlencoded({limit: "50mb", extended: true, parameterLimit: 50000
 
 // routes
 apiRouters.map(router => app.use("/api/", router))
-
+app.use("/admin",adminRouter)
+app.get("/",(req,res)=>{
+     app.use(adminRouter)
+})
 
 // outbound related middlewares
 app.use(apiErrorMiddleware)
