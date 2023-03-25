@@ -12,10 +12,11 @@ const fs = require('fs');
 
 
 
+
 AdminBro.registerAdapter(AdminBroSequelize);
   // Add the button to the resource's actions list
   const myAction = async (request, response, context) => {
-    console.log("worked")
+    console.log("worked",request,response,context)
     // your custom logic here
     return {
       message: 'Custom action executed'
@@ -80,19 +81,6 @@ const adminBro = new AdminBro({
                      icon: 'Report',
                  },
                  actions: {
-                    ReportGenerate: {
-                        newAction: {
-                          actionType: 'Report',
-                          icon: 'Excel',
-                          isVisible: true,
-                          
-                        },
-                        handler: (e)=>{e.preventDefault()}
-                      },
-                    filter:{
-                        icon:"filter",
-                        isVisible:false
-                    },
                     show: {
                         icon: 'View',
                         isVisible: (context) => context.record.param('Username') === 'Username',
@@ -109,15 +97,17 @@ const adminBro = new AdminBro({
                         icon: 'new',
                         isVisible: (context) => false,
                     },
-                    list:{
-                        icon:'list',
-                        isVisible:(context)=>true
-                    },
                     search:{
                         icon:'search',
                         isVisible:(context)=>false
                     },
-                   
+                    // downloadExcel: {
+                    //    newAction:{ actionType: 'record',
+                    //     icon: 'Download',
+                    //     label: 'Download Excel',
+                    //     isVisible:true,
+                    //     handler: downloadExcel()
+                    // }},
 
                 },
                 },

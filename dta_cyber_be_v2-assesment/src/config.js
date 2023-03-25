@@ -22,7 +22,8 @@ const dbClient = new Sequelize(
     process.env.DB_USER,
     process.env.DB_PASSWORD, {
         host: process.env.DB_HOST,
-        dialect: "postgres"
+        dialect: "postgres",
+        logging:false,
     }
     // TODO: Read & Write Replication
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/

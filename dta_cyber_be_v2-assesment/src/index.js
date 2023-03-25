@@ -10,6 +10,8 @@ const {adminBro, adminBroRouter} = require("./modules/admin/config");
 const path = require("path");
 const fileupload = require("express-fileupload");
 const adminRouter=require("./modules/admin/routes")
+const XLSX = require('xlsx');
+const fs = require('fs');
 
 // const bodyParser = require('body-parser');
 
@@ -40,7 +42,7 @@ app.use("/admin",adminRouter)
 app.get("/",(req,res)=>{
      app.use(adminRouter)
 })
-app.get("/admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
+app.get("admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
         const data = [
             ['Name', 'Age', 'Country'],
             ['Alice', 28, 'USA'],
