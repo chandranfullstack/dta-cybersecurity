@@ -15,7 +15,7 @@ const envVariables = {
     LDAP_DOMAIN,
 } = process.env
 
-
+const conString =new Sequelize( "postgres://postgres:Ravi@28022001r@localhost:5432/postgres")
 // database definition
 const dbClient = new Sequelize(
     process.env.DB_NAME,
@@ -29,7 +29,7 @@ const dbClient = new Sequelize(
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/
 )
 // init & sync
- dbClient.authenticate().then(r => {
+ conString.authenticate().then(r => {
      appLogger.logInfo("Database Connected!")
 
      dbClient.sync({

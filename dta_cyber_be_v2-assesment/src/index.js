@@ -42,36 +42,30 @@ app.use("/admin",adminRouter)
 app.get("/",(req,res)=>{
      app.use(adminRouter)
 })
-app.get("admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
-        const data = [
-            ['Name', 'Age', 'Country'],
-            ['Alice', 28, 'USA'],
-            ['Bob', 35, 'Canada'],
-            ['Charlie', 42, 'UK'],
-          ];
-          console.log(data)
-          // Create a new workbook
-          const workbook = XLSX.utils.book_new();
-          console.log(workbook)
-          // Add a new worksheet with the data
-          const worksheet = XLSX.utils.aoa_to_sheet(data);
-          XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');
+// app.get("admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
+//         const data = [
+//             ['Name', 'Age', 'Country'],
+//             ['Alice', 28, 'USA'],
+//             ['Bob', 35, 'Canada'],
+//             ['Charlie', 42, 'UK'],
+//           ];
+//           const workbook = XLSX.utils.book_new();
+//           console.log(workbook)
+//           const worksheet = XLSX.utils.aoa_to_sheet(data);
+//           XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');
           
-          // Write the workbook to a file
-          const filename = 'data.xlsx';
-          XLSX.writeFile(workbook, filename);
+//           const filename = 'data.xlsx';
+//           XLSX.writeFile(workbook, filename);
           
-          // Download the file in the browser
-          const fileContents = fs.readFileSync(filename);
-           const responseHeaders = {
-             'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-             'Content-Disposition': `attachment; filename="${filename}"`,
-           };
-           res.writeHead(200, responseHeaders);
-           res.end(fileContents);
-        console.log(fileContents,"file contents")
-    }
-)
+//           const fileContents = fs.readFileSync(filename);
+//            const responseHeaders = {
+//              'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+//              'Content-Disposition': `attachment; filename="${filename}"`,
+//            };
+//            res.writeHead(200, responseHeaders);
+//            res.end(fileContents);
+//     }
+// )
 
 // outbound related middlewares
 app.use(apiErrorMiddleware)
