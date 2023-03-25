@@ -47,6 +47,7 @@
     "pg-hstore": "^2.3.4",
     "pm2": "^5.2.2",
     "react": "^16.13.1",
+    "react-dom": "^16.14.0",
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2",
     "swc": "^1.0.11"

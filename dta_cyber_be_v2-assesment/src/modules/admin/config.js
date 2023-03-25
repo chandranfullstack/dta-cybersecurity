@@ -13,11 +13,13 @@ const fs = require('fs');
 
 
 AdminBro.registerAdapter(AdminBroSequelize);
-const getFun=()=>{
-    console.log("called")
-    alert("callled")
-}
   // Add the button to the resource's actions list
+  const myAction = async (request, response, context) => {
+    // your custom logic here
+    return {
+      message: 'Custom action executed'
+    };
+  };
   
 const adminBro = new AdminBro({
     databases: [],
@@ -74,18 +76,21 @@ const adminBro = new AdminBro({
             resource:Report,
              options: {
                  parent: {
-                     icon: 'TextLink',
+                     icon: 'Report',
                  },
                  actions: {
                     ReportGenerate: {
                         newAction: {
                           actionType: 'Report',
-                          icon: 'New',
+                          icon: 'Excel',
                           isVisible: true,
-                          handle:()=>console.log("worked the handle function"),
-                        fun:  onclick=()=>{console.log("worked")}
+                          handler: myAction,
                         }
                       },
+                    filter:{
+                        icon:"filter",
+                        isVisible:false
+                    },
                     show: {
                         icon: 'View',
                         isVisible: (context) => context.record.param('Username') === 'Username',
