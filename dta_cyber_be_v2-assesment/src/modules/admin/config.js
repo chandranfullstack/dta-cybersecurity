@@ -2,16 +2,21 @@ const AdminBro = require('admin-bro')
 const AdminBroExpress = require('@admin-bro/express')
 const AdminBroSequelize = require('admin-bro-sequelizejs');
 const {User} = require("../auth/models");
-const xlsx =require('node-xlsx')
-const { exportToExcel } = require('./customfun')
+const { exportToExcel ,down} = require('./customfun')
 const {Quiz, QuizGroup, QuizQuestion, QuizOption, QuestionM2MOption,Report} = require("../assessment/models");
-const { Component } = require('react');
+const { response } = require('express');
+const { request } = require('http');
+const XLSX = require('xlsx');
+const fs = require('fs');
 
 
 
 
 AdminBro.registerAdapter(AdminBroSequelize);
-
+const getFun=()=>{
+    console.log("called")
+    alert("callled")
+}
   // Add the button to the resource's actions list
   
 const adminBro = new AdminBro({
@@ -77,11 +82,9 @@ const adminBro = new AdminBro({
                           actionType: 'Report',
                           icon: 'New',
                           isVisible: true,
-                          handler: async (request, response, context) => {
-                            console.log("called")
-                            console.log(context.resource.id())
-                          },
-                        },
+                          handle:()=>console.log("worked the handle function"),
+                        fun:  onclick=()=>{console.log("worked")}
+                        }
                       },
                     show: {
                         icon: 'View',
@@ -124,7 +127,6 @@ const adminBro = new AdminBro({
     rootPath: '/admin',
 })
   
-
 const adminBroRouter = AdminBroExpress.buildRouter(adminBro)
 
 
