@@ -15,12 +15,13 @@ const fs = require('fs');
 AdminBro.registerAdapter(AdminBroSequelize);
   // Add the button to the resource's actions list
   const myAction = async (request, response, context) => {
+    console.log("worked")
     // your custom logic here
     return {
       message: 'Custom action executed'
     };
   };
-  
+ 
 const adminBro = new AdminBro({
     databases: [],
     resources: [
@@ -84,8 +85,9 @@ const adminBro = new AdminBro({
                           actionType: 'Report',
                           icon: 'Excel',
                           isVisible: true,
-                          handler: myAction,
-                        }
+                          
+                        },
+                        handler: (e)=>{e.preventDefault()}
                       },
                     filter:{
                         icon:"filter",

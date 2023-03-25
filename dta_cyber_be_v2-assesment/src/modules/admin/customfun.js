@@ -4,9 +4,9 @@ const fs = require('fs');
 
 
 const exportToExcel = async(request, response, context) => {
-    console.log("called")
+    console.log("called",)
   const { resource, records } = context;
-
+console.log(records,resource)
   const workbook = new exceljs.Workbook();
   const sheet = workbook.addWorksheet(resource.name);
 
@@ -41,7 +41,7 @@ const exportToExcel = async(request, response, context) => {
   response.end();
 };
 
-const down =()=>{
+const down =(response)=>{
 
     const data = [
         ['Name', 'Age', 'Country'],
@@ -63,12 +63,12 @@ const down =()=>{
       
       // Download the file in the browser
       const fileContents = fs.readFileSync(filename);
-    //   const responseHeaders = {
-    //     'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    //     'Content-Disposition': `attachment; filename="${filename}"`,
-    //   };
-    //   response.writeHead(200, responseHeaders);
-    //   response.end(fileContents);
+       const responseHeaders = {
+         'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+         'Content-Disposition': `attachment; filename="${filename}"`,
+       };
+       response.writeHead(200, responseHeaders);
+       response.end(fileContents);
     console.log(fileContents,"file contents")
 }
 
