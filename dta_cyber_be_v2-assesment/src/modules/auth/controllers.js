@@ -57,17 +57,13 @@ const loginResponse1 = (user) => ({
 
      try {
          const validator = new _Validator(req)
-         console.log(await validator.isValid(),"isValid")
          await validator.isValid()
-         console.log(await validator.isValid())
          const user = validator.data['username']
          loginResponse1(user)
-         console.log(user)
          apiOkResponse(res, loginResponse1(user))
 
       } catch (e) {
           next(e)
-          res.send({token:1})
       }
   }
 // const loginController = async (req, res, next, ...rest) => {

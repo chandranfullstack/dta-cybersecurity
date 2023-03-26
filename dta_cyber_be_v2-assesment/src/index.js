@@ -12,6 +12,7 @@ const fileupload = require("express-fileupload");
 const adminRouter=require("./modules/admin/routes")
 const XLSX = require('xlsx');
 const fs = require('fs');
+const ejs=require("ejs")
 
 // const bodyParser = require('body-parser');
 
@@ -22,6 +23,13 @@ app.set('view engine', 'ejs');
 console.log(path.join(__dirname, '/views'))
 app.set('views', path.join(__dirname, '/views'));
 
+app.get("/download",(req,res)=>{
+    console.log("called")
+    ejs.renderFile(__dirname + '/modules/admin/download.ejs', function(err, html) {
+        if (err) throw err;
+        res.send(html);
+      });
+})
 
 // inbound related middlewares
 app.use(cors({
@@ -42,30 +50,28 @@ app.use("/admin",adminRouter)
 app.get("/",(req,res)=>{
      app.use(adminRouter)
 })
-// app.get("admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
-//         const data = [
-//             ['Name', 'Age', 'Country'],
-//             ['Alice', 28, 'USA'],
-//             ['Bob', 35, 'Canada'],
-//             ['Charlie', 42, 'UK'],
-//           ];
-//           const workbook = XLSX.utils.book_new();
-//           console.log(workbook)
-//           const worksheet = XLSX.utils.aoa_to_sheet(data);
-//           XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');
-          
-//           const filename = 'data.xlsx';
-//           XLSX.writeFile(workbook, filename);
-          
-//           const fileContents = fs.readFileSync(filename);
-//            const responseHeaders = {
-//              'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-//              'Content-Disposition': `attachment; filename="${filename}"`,
-//            };
-//            res.writeHead(200, responseHeaders);
-//            res.end(fileContents);
-//     }
-// )
+ app.get("admin/resources/Reports/actions/ReportGenerate",async(req,res)=>{
+         const data = [
+             ['Name', 'Age', 'Country'],
+             ['Alice', 28, 'USA'],
+             ['Bob', 35, 'Canada'],
+             ['Charlie', 42, 'UK'],
+           ];
+           const workbook = XLSX.utils.book_new();
+           console.log(workbook)
+           const worksheet = XLSX.utils.aoa_to_sheet(data);
+           XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');        
+           const filename = 'data.xlsx';
+           XLSX.writeFile(workbook, filename);        
+           const fileContents = fs.readFileSync(filename);
+            const responseHeaders = {
+              'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+              'Content-Disposition': `attachment; filename="${filename}"`,
+            };
+            res.writeHead(200, responseHeaders);
+            res.end(fileContents);
+     }
+ )
 
 // outbound related middlewares
 app.use(apiErrorMiddleware)

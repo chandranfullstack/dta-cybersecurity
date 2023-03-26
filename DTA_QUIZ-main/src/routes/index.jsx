@@ -9,6 +9,7 @@ import Home from "../pages/home/Home";
 import SiginIn from "../pages/signin/Signin";
 import Result from "src/pages/result/Result";
 import Report from "src/pages/Reports/reports";
+import AdminRoute from "src/pages/admin/admin";
 import PasswordSecurityChecker from "src/pages/PasswordSecurityChecker/PasswordSecurityChecker";
 import {
   CONCRETE_CASES_DETAIL_ROUTE,
@@ -22,7 +23,8 @@ import {
   RESULT_ROUTE,
   SIGNIN_ROUTE,
   WELCOME_ROUTE,
-  REPORTS_ROUTE
+  REPORTS_ROUTE,
+  ADMIN_ROUTE
 } from "src/utils/constant";
 import Welcome from "src/pages/welcome/Welcome";
 
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
     path: REPORTS_ROUTE,
     element: <Report/>,
   },
+  {
+    path:ADMIN_ROUTE,
+    element:<AdminRoute/>
+  }
 ]);
 
 export default router;

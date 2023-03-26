@@ -1,6 +1,8 @@
 {
   "name": "dta_cyber_be_v2",
   "version": "1.0.0",
+  "type": "commonjs",
+  "module": ".js,.jsx",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -39,6 +41,7 @@
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.3",
     "file-type": "^18.2.1",
+    "jsdom": "^21.1.1",
     "ldapjs": "^2.3.3",
     "mysql2": "^3.0.1",
     "node-xlsx": "^0.21.0",
