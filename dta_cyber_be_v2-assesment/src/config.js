@@ -16,8 +16,8 @@ const envVariables = {
 } = process.env
 
 //const conString =new Sequelize( "postgres://postgres:Ravi@28022001r@localhost:5432/postgres")
-const conString =new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9")
-
+//const conString =new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9")
+const conString=new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9")
 // database definition
 const dbClient = new Sequelize(
     process.env.DB_NAME,
@@ -31,7 +31,7 @@ const dbClient = new Sequelize(
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/
 )
  //init & sync
- dbClient.authenticate().then(r => {
+ conString.authenticate().then(r => {
      appLogger.logInfo("Database Connected!")
 
      dbClient.sync({
