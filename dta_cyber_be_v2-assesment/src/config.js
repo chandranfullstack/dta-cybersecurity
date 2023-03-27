@@ -36,20 +36,19 @@ const dbClient = new Sequelize(
         host: process.env.DB_HOST,
         dialect: "postgres",
         logging:false,
-        ssl:{require:true}
     }
     // TODO: Read & Write Replication
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/
 )
  //init & sync
  conString.authenticate().then(r => {
-     appLogger.logInfo("Database Connected!")
+     appLogger.logInfo("Database Connected!",r)
 
      dbClient.sync({
          alter: true,
          // force: false,
      }).then(r => {
-         appLogger.logInfo("Migrations Synced!")
+         appLogger.logInfo("Migrations Synced!",r)
      }).catch(e => {
          appLogger.logException("Migrations Sync Failed!", e)
      })
