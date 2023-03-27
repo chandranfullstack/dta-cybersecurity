@@ -22,7 +22,7 @@ const conString =new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY
     protocol: 'postgres',
     dialectOptions: {
       ssl: {
-        require: 'true',
+        require: 'false',
         rejectUnauthorized: false
       }
     }
@@ -44,7 +44,7 @@ const dbClient = new Sequelize(
  conString.authenticate().then(r => {
      appLogger.logInfo("Database Connected!",r)
 
-     dbClient.sync({
+     conString.sync({
          alter: true,
          // force: false,
      }).then(r => {
