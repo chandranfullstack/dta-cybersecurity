@@ -1,7 +1,7 @@
 const {apiOkResponse, isNull, pick} = require("../common/helpers");
 const {Quiz, QuizQuestion, QuizGroup, UserQuizTracker, QuizOption, QuizAnswer} = require("./models");
 const {getInstanceOrException, BaseApiValidator} = require("../common/validators");
-const {dbClient} = require("../../config");
+const {dbClient,conString} = require("../../config");
 const {QueryTypes} = require("sequelize");
 const {getAssessmentEndDataService} = require("./services");
 const { User } = require("../auth/models");
@@ -96,7 +96,7 @@ const assessmentStartController = async (req, res, next) => {
             let questions_data = []
             for (let question of quiz_group['questions']) {
 
-                const options = await dbClient.query(
+                const options = await conString.query(
                     `
                     SELECT DISTINCT "QuizOptions".id, title, title_jp, sub_title, sub_title_jp
                     FROM "QuizOptions"

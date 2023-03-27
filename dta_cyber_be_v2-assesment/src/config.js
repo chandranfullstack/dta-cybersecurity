@@ -60,4 +60,5 @@ const dbClient = new Sequelize(
 module.exports = {
     envVariables,
     dbClient,
+    conString
 }

@@ -1,5 +1,5 @@
 const {Model} = require("sequelize");
-const {dbClient} = require("../../config");
+const {dbClient,conString} = require("../../config");
 
 /**
  * Base model class used across the application.
@@ -10,7 +10,7 @@ class BaseModel extends Model {
 
 // Defines default options. Used in Model.init().
 const defaultOptions = {
-    sequelize: dbClient,
+    sequelize: conString,
     timestamps: true,
 
     createdAt: 'created_at',
