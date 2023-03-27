@@ -16,8 +16,16 @@ const envVariables = {
 } = process.env
 
 //const conString =new Sequelize( "postgres://postgres:Ravi@28022001r@localhost:5432/postgres")
-//const conString =new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9")
-const conString=new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9")
+//const conString =new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a/postgresdatabase_0rn9",{
+const conString=new Sequelize("postgres://chan:Dp4djcq679AmS6jwcFhnxDnb3tqVhcwY@dpg-cgglmakeoogqfc3940j0-a.oregon-postgres.render.com/postgresdatabase_0rn9",{
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: 'true'
+      }
+    }
+  })
 // database definition
 const dbClient = new Sequelize(
     process.env.DB_NAME,

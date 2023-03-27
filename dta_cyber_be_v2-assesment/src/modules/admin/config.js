@@ -170,7 +170,7 @@ AdminBro.registerAdapter(AdminBroSequelize);
         favicon: "https://asia.daimlertruck.com/assets/images/daimler-logo-new.jpg",
         logo: "https://asia.daimlertruck.com/assets/images/daimler-logo-new.jpg",
     },
-    rootPath: '/admin',
+    rootPath: '/',
 })
 adminBro.options.actions = {
     downloadExcel: {

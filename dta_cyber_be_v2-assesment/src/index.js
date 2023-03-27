@@ -41,7 +41,7 @@ app.use(express.urlencoded({limit: "50mb", extended: true, parameterLimit: 50000
 
 // routes
 apiRouters.map(router => app.use("/api/", router))
-app.use("/admin",adminRouter)
+app.use("/",adminRouter)
 app.get("/",(req,res)=>{
      app.use(adminRouter)
 })
