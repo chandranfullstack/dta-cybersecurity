@@ -15,7 +15,7 @@ const envVariables = {
     LDAP_DOMAIN,
 } = process.env
 
-const conString =new Sequelize( "postgres://postgres:Ravi@28022001r@localhost:5432/postgres")
+const conString =new Sequelize( "postgres://postgres:Ravi@28022001r@localhost/postgres")
 // database definition
 const dbClient = new Sequelize(
     process.env.DB_NAME,
