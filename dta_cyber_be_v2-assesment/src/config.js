@@ -30,7 +30,7 @@ const dbClient = new Sequelize(
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/
 )
 // init & sync
- conString.authenticate().then(r => {
+ dbClient.authenticate().then(r => {
      appLogger.logInfo("Database Connected!")
 
      dbClient.sync({
