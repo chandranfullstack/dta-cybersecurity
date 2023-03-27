@@ -115,5 +115,5 @@ app.use(serverErrorMiddleware);
 
 app.listen(envVariables.PORT, () => {
     appLogger.logInfo(`ENV: ${envVariables.NODE_ENV}`)
-    appLogger.logInfo(`App is running at http://localhost:${envVariables.PORT}`)
+    appLogger.logInfo(`App is running at https://localhost:${envVariables.PORT}`)
 });
