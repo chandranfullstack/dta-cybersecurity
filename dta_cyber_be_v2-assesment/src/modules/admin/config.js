@@ -8,14 +8,16 @@ const {Quiz, QuizGroup, QuizQuestion, QuizOption, QuestionM2MOption,Report} = re
 const { request } = require('http');
 const { response } = require('express');
 const express =require("express");
+const router = express.Router();
 const { Button } = require('@admin-bro/design-system');
 const app =express()
-    
+const {Resource}=require("@admin-bro/sequelize")
+const {createExcelAction}=require("./excel-action")
+
 
 AdminBro.registerAdapter(AdminBroSequelize);
   // Add the button to the resource's actions list
   const options={
-    component:AdminBro.bundle("./download"),
     parent:{
         icon:"Report"
     }, actions: {
@@ -42,7 +44,7 @@ AdminBro.registerAdapter(AdminBroSequelize);
                             },
                               downloadExcel: {
                                  newAction:{
-                                  actionType: 'download',
+                                  actionType: 'resource',
                                   icon: 'Download',
                                   isVisible:true,
                                  }, 
@@ -170,9 +172,21 @@ AdminBro.registerAdapter(AdminBroSequelize);
     },
     rootPath: '/admin',
 })
+adminBro.options.actions = {
+    downloadExcel: {
+      icon: 'Download',
+      label: 'Download Excel',
+      action: { href: '/download-excel' },
+    },
+  };
+  
+  adminBro.watch();
 const adminBroRouter = AdminBroExpress.buildRouter(adminBro)
-
-
+adminBroRouter.use('/admin', (req, res, next) => {
+    res.locals.admin = adminBro;
+    next();
+  });
+  
 module.exports = {
     adminBroRouter,
     adminBro

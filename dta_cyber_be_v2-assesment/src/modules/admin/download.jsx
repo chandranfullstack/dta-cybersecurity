@@ -1,23 +1,15 @@
 import React from "react"
-import { Box, Button } from "@admin-bro/design-system"
+import { Box, Button ,Link } from "@admin-bro/design-system";
+import axios from "axios";
 
 const Download=()=>{
-  const  handleExport=()=>{
-    console.log("called the function")
-        const data = [
-            ['Name', 'Age', 'Country'],
-            ['Alice', 28, 'USA'],
-            ['Bob', 35, 'Canada'],
-            ['Charlie', 42, 'UK'],
-          ];
-         window.print()
-          
-          
-    }
+  
     return(
         <Box>
-            <Button onClick={handleExport}>
+            <Button>
+                <Link href="/download-excel">
                 Export to excel
+                </Link>
             </Button>
             </Box>
     )
