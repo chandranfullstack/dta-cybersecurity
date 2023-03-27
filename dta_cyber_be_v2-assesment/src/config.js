@@ -30,20 +30,20 @@ const dbClient = new Sequelize(
     // Ref: https://sequelize.org/docs/v6/other-topics/read-replication/
 )
 // init & sync
- dbClient.authenticate().then(r => {
-     appLogger.logInfo("Database Connected!")
-
-     dbClient.sync({
-         alter: true,
-         // force: false,
-     }).then(r => {
-         appLogger.logInfo("Migrations Synced!")
-     }).catch(e => {
-         appLogger.logException("Migrations Sync Failed!", e)
-     })
- }).catch(e => {
-     appLogger.logException("Database Connection Failed!", e)
- })
+ //dbClient.authenticate().then(r => {
+ //    appLogger.logInfo("Database Connected!")
+//
+ //    dbClient.sync({
+ //        alter: true,
+ //        // force: false,
+ //    }).then(r => {
+ //        appLogger.logInfo("Migrations Synced!")
+ //    }).catch(e => {
+ //        appLogger.logException("Migrations Sync Failed!", e)
+ //    })
+ //}).catch(e => {
+ //    appLogger.logException("Database Connection Failed!", e)
+ //})
 
 
 module.exports = {
