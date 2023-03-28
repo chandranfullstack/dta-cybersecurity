@@ -28,6 +28,8 @@
     "@admin-bro/design-system": "^1.7.3",
     "@admin-bro/express": "^3.1.0",
     "@admin-bro/sequelize": "^1.2.1",
+    "@adminjs/custom-components": "^2.0.1",
+    "@adminjs/import-export": "^2.0.2",
     "admin-bro": "^4.0.1",
     "admin-bro-expressjs": "^0.1.7",
     "admin-bro-sequelizejs": "^0.5.1",
@@ -51,10 +53,12 @@
     "pg-hstore": "^2.3.4",
     "pm2": "^5.2.2",
     "react": "^16.13.1",
+    "react-css-utils": "^0.0.2",
     "react-dom": "^16.14.0",
     "react-export-table-to-excel": "^1.0.6",
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2",
+    "styled-system": "^5.1.5",
     "swc": "^1.0.11"
   },
   "devDependencies": {

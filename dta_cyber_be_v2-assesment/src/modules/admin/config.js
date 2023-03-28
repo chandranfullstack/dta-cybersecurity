@@ -15,45 +15,49 @@ const {Resource}=require("@admin-bro/sequelize")
 const {createExcelAction}=require("./excel-action")
 
 
-
 AdminBro.registerAdapter(AdminBroSequelize);
-  // Add the button to the resource's actions list
+  // Add the button to the resource's actions 
   const options={
-    component: AdminBro.bundle("./download")  ,
     parent:{
         icon:"Report"
     }, actions: {
-                             show: {
-                                 icon: 'View',
-                                 isVisible: (context) => context.record.param('Username') === 'Username',
-                             },
-                             edit: {
-                                 icon: 'edit',
-                                 isVisible: (context) => context.record.param('Username') === 'Username',
-                             },
-                            // delete: {
-                            //     icon: 'delete',
-                            //     isVisible: (context) => context.record.param('Username') === 'Username',
-                            // },
-                            // new: {
-                            //     icon: 'new',
-                            //     isVisible: (context) => false,
-                            // },
-                            
-                            search:{
-                                icon:'search',
-                                isVisible:(context)=>true
-                            },
-                              downloadExcel: {
-                                 newAction:{
-                                  actionType: 'resource',
-                                  icon: 'Download',
-                                  isVisible:true,
-                                  path:"/download-excel",
-                                  href:"/download-excel"
-                                 }, 
-                                component: AdminBro.bundle("./download"),  
-                           } }
+                 show: {
+                     icon: 'View',
+                     isVisible: (context) => context.record.param('Username') === 'Username',
+                 },
+                 edit: {
+                     icon: 'edit',
+                     isVisible: (context) => context.record.param('Username') === 'Username',
+                 },
+                 delete: {
+                     icon: 'delete',
+                     isVisible: (context) => context.record.param('Username') === 'Username',
+                 },
+                 new: {
+                     icon: 'new',
+                     isVisible: (context) => false,
+                 },
+                
+                search:{
+                    icon:'search',
+                    isVisible:(context)=>false
+                },
+                list:{
+                    showFilter:false,
+                    component:AdminBro.bundle("./download"),
+                },
+                
+                //   downloadExcel: {
+                //      newAction:{
+                //       actionType: 'list',
+                //       icon: 'Download',
+                //       isVisible:true,
+                //       path:"/download-excel",
+                //       href:"/download-excel",
+                //      }, 
+                //     component: AdminBro.bundle("./download"), 
+                //     },
+                    }
   }
   
  const adminBro = new AdminBro({
@@ -62,7 +66,9 @@ AdminBro.registerAdapter(AdminBroSequelize);
         {
             resource:Report,
             options:options,
-            component:AdminBro.bundle("./download")
+            features: [
+                
+              ],
         }
     ],
 //     databases: [],
