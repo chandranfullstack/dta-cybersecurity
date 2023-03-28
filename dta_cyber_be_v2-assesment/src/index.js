@@ -71,7 +71,6 @@ app.get('/download-excel', (req, res) => {
                 'ravichandran']
     ]
     const workbook = XLSX.utils.book_new();
-    console.log(workbook)
     const worksheet = XLSX.utils.aoa_to_sheet(data);
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');        
     const filename = 'data.xlsx';
