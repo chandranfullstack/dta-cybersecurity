@@ -5,6 +5,6 @@
 //export default getHostAPIUrl;
 const getHostAPIUrl = () => {
   if (import.meta.env.REACT_APP_NODE_ENV === "production") return "https://";
-  return "http://localhost:3000/";
+  return "https://dta-cybersecurity-cms.onrender.com/";
 };
 export default getHostAPIUrl;

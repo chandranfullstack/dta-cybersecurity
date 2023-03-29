@@ -10,7 +10,7 @@ class BaseModel extends Model {
 
 // Defines default options. Used in Model.init().
 const defaultOptions = {
-    sequelize: conString,
+    sequelize: dbClient,
     timestamps: true,
 
     createdAt: 'created_at',

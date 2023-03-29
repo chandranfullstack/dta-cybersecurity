@@ -13,7 +13,7 @@ const adminRouter=require("./modules/admin/routes")
 const XLSX = require('xlsx');
 const fs = require('fs');
 const ejs=require("ejs")
-const Report=require("./modules/assessment/models")
+const {Report}=require("./modules/assessment/models")
 
 // const bodyParser = require('body-parser');
 
@@ -45,14 +45,18 @@ app.use("/",adminRouter)
 app.get("/",(req,res)=>{
      app.use(adminRouter)
 })
-app.get("/re",(req,res)=>{
-    res.writeHead(301,{Location:`http://localhost:3000/download`})
+app.get("/re",async(req,res)=>{
+    // res.writeHead(301,{Location:`http://localhost:3000/download`})
+    const data =await Report.findAll({})
+    res.send(data)
     
 })
 const xlsx = require('xlsx');
 
-app.get('/download-excel', (req, res) => {
-    console.log(Report)
+app.get('/download-excel',async (req, res) => {
+    //const data =await Report.findAll({})
+    //data.map((data)=>console.log(data,"data")) 
+    //res.send(data)
     const data =[
         ['Title',	'Id',	'Updated At'	,'Created At',	'Wronganswer',	'Correctanswer','	Username']
         ,['Hash key',
@@ -72,7 +76,11 @@ app.get('/download-excel', (req, res) => {
     ]
     const workbook = XLSX.utils.book_new();
     const worksheet = XLSX.utils.aoa_to_sheet(data);
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');        
+    const colw=[
+        {hpx:12}
+    ]
+    worksheet["!cols"]=[{width:20},{width:10},{width:20},{width:20},{width:20},{width:20},{width:20}]
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Data');  
     const filename = 'data.xlsx';
     XLSX.writeFile(workbook, filename);        
     const fileContents = fs.readFileSync(filename);
