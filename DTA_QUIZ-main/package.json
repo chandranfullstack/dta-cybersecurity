@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "/cyber",
+  "engines": {
+    "node": ">=14 <15"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
